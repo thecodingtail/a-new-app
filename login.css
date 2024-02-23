@@ -1,0 +1,73 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.background > img {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: -100;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3 {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+h3 > #create-room {
+  margin-top: 30dvh;
+}
+
+.inputs {
+}
+
+#create-room,
+#join-room {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; !important
+  ;
+}
+
+input {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  width: 70dvw;
+  height: 5dvh;
+  font-size: 1.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#submit-btn {
+  background-color: rgb(245, 63, 63);
+  padding: 0px 0px;
+  border: none;
+  display: block;
+  margin: 20px auto;
+  width: 12dvw;
+  height: 8dvh;
+  font-size: 1.5rem;
+  font-weight: 700;
+  min-width: 100px;
+  text-align: center;
+  min-height: 55px;
+  border-radius: 7px;
+}
+
+#margin-top-text {
+  margin-top: 30dvh;
+  font-size: 1.5rem;
+}
+
+#join-room-text {
+  margin-top: 3dvh;
+  font-size: 1.5rem;
+}
