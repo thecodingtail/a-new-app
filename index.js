@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-import { inputRoomJoinEl, inputRoomCreateEl } from "./login"
+import { inputRoomJoinEl, inputRoomCreateEl } from "./login.js";
 const appSettings = {
     databaseURL: "https://my-first-app360-default-rtdb.europe-west1.firebasedatabase.app/"
 }
@@ -22,11 +22,11 @@ addButtonEl.addEventListener("click", function() {
     
     clearInputFieldEl()
 })
-
+console.log(RoomCodeFromLogin())
 function RoomCodeFromLogin() {
-    if(inputRoomCreateEl !==NaN) {
+    if(inputRoomCreateEl !== "") {
         roomNumber = inputRoomCreateEl
-     } else if(inputRoomJoinEl !==NaN) {
+     } else if(inputRoomJoinEl !=="" ){
         roomNumber = inputRoomCreateEl
      }
     
