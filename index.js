@@ -1,13 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-
+import { inputRoomJoinEl, inputRoomCreateEl } from "./login"
 const appSettings = {
     databaseURL: "https://my-first-app360-default-rtdb.europe-west1.firebasedatabase.app/"
 }
-
+console.log(inputRoomCreateEl)
+console.log(inputRoomJoinEl)
+let roomNumber = RoomCodeFromLogin()
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
-const shoppingListInDB = ref(database, "shoppingList")
+const shoppingListInDB = ref(database, `${roomNumber}`)
 
 const inputFieldEl = document.getElementById("input-field")
 const addButtonEl = document.getElementById("add-button")
@@ -20,6 +22,15 @@ addButtonEl.addEventListener("click", function() {
     
     clearInputFieldEl()
 })
+
+function RoomCodeFromLogin() {
+    if(inputRoomCreateEl !==NaN) {
+        roomNumber = inputRoomCreateEl
+     } else if(inputRoomJoinEl !==NaN) {
+        roomNumber = inputRoomCreateEl
+     }
+    
+}
 
 onValue(shoppingListInDB, function(snapshot) {
     if (snapshot.exists()) {
@@ -35,7 +46,8 @@ onValue(shoppingListInDB, function(snapshot) {
             appendItemToShoppingListEl(currentItem)
         }    
     } else {
-        shoppingListEl.innerHTML = "No items here... yet"
+        shoppingListEl.innerHTML = `No items here... yet
+        <a href="login.html">click here to join/create room</a>`
     }
 })
 
@@ -56,7 +68,7 @@ function appendItemToShoppingListEl(item) {
     newEl.textContent = itemValue
     
     newEl.addEventListener("dblclick", function() {
-        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+        let exactLocationOfItemInDB = ref(database, `${roomNumber}/${itemID}`)
         
         remove(exactLocationOfItemInDB)
     })

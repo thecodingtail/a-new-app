@@ -83,6 +83,7 @@ ul {
   flex-wrap: wrap;
   gap: 10px;
   color: whitesmoke;
+  font-size: 20px;
 }
 
 ul li {
@@ -99,4 +100,10 @@ ul li {
 ul li:active {
   background-color: #180735;
   cursor: pointer;
+}
+
+a {
+  color: whitesmoke;
+  text-decoration: underline;
+  text-align: center;
 }
